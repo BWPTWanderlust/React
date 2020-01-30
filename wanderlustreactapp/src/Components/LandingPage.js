@@ -13,6 +13,7 @@ function LandingPage(props) {
               <p>Location: {el.location}</p>
             </Link>
             <p>Trip Type: {el.triptype}</p>
+            <p>Organizer: {el.organizer}</p>
             <p>Duration: {el.duration}</p>
           </div>
         );
