@@ -5,7 +5,6 @@ import LandingPage from "./Components/LandingPage";
 import Experience from "./Components/Experience";
 
 function App() {
-
   const data = [
     {
       id: 0,
@@ -47,6 +46,7 @@ function App() {
       <Route exact path="/">
         <LandingPage experience={data} />
       </Route>
+
       {/* <Route path="/experiences/:id">
         <Experience />
       </Route> */}

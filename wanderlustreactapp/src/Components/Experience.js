@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
-import AddExperience from './AddExperience'
+// import React, { useState } from 'react'
+// import AddExperience from './AddExperience'
 
-export default function Experiences() {
+// export default function Experiences() {
 
-    const [ events, setEvents ] = useState([])
+//     const [ events, setEvents ] = useState([])
 
-    return (
-        <div>
-            <AddExperience setEvents = { setEvents } />
-        </div>
-    )
+//     return (
+//         <div>
+//             <AddExperience setEvents = { setEvents } />
+//         </div>
+//     )
 
-}
+// }
