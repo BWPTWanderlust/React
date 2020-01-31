@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 
 const NewUser = () => {
-  return <div>Form page</div>;
+  return <div>Form page - Wanderlust</div>;
 };
 
 //     const { register, errors, handleSubmit } = useForm();
