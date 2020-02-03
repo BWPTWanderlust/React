@@ -18,7 +18,7 @@ function LandingPage(props) {
         );
       })}
       <Link to = { '/AddExperience' }>
-        <AddExperience/>
+        <button>Add Experience</button>
       </Link>
     </div>
   );
