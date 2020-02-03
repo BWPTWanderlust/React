@@ -1,4 +1,4 @@
 [build]  
 command = "yarn run build"  
-publish="/build"  
+publish="/wanderlustreactapp/build"  
 base = "/wanderlustreactapp"
