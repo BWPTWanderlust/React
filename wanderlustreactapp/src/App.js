@@ -47,9 +47,9 @@ function App() {
         <LandingPage experience={data} />
       </Route>
 
-      {/* <Route path="/experiences/:id">
+      <Route path="/experiences/:id">
         <Experience />
-      </Route> */}
+      </Route>
     </div>
   );
 }
