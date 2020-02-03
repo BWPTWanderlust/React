@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import AddExperience from "./AddExperience";
 
 function LandingPage(props) {
   console.log("Props inside LandingPage Component", props);
@@ -9,7 +10,7 @@ function LandingPage(props) {
       {props.experience.map(el => {
         return (
           <div>
-            <Link to={`/experiences/${el.id}`}>
+            <Link to={`/Experience/${el.id}`}>
               <p>Location: {el.location}</p>
             </Link>
             <p>Trip Type: {el.triptype}</p>
@@ -18,6 +19,9 @@ function LandingPage(props) {
           </div>
         );
       })}
+      <Link to = { '/AddExperience' }>
+        <AddExperience/>
+      </Link>
     </div>
   );
 }
