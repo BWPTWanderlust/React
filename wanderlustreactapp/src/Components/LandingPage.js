@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function LandingPage(props) {
-  console.log("Props inside LandingPage Component", props);
-
   return (
     <div className="expedition-container">
       {props.experience.map(el => {

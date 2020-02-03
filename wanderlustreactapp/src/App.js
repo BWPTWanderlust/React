@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import "./App.css";
 import LandingPage from "./Components/LandingPage";
 import Experience from "./Components/Experience";
+import AddExperience from "./Components/AddExperience";
 
 function App() {
   const data = [
@@ -48,7 +49,11 @@ function App() {
       </Route>
 
       <Route path="/experiences/:id">
-        <Experience />
+        <Experience experience={data} />
+      </Route>
+
+      <Route path="/add">
+        <AddExperience />
       </Route>
     </div>
   );

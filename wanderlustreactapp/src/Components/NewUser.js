@@ -6,6 +6,8 @@ const NewUser = () => {
   return <div>Form page - Wanderlust</div>;
 };
 
+
+
 //     const { register, errors, handleSubmit } = useForm();
 //   const [user, setUser] = useState({});
 
