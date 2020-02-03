@@ -49,7 +49,11 @@ function App() {
       </Route>
 
       <Route path="/experiences/:id">
-        <Experience />
+        <Experience experience={data} />
+      </Route>
+
+      <Route path="/add">
+        <AddExperience />
       </Route>
 
       <Route path = '/AddExperience'>
