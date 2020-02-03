@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import "./App.css";
 import LandingPage from "./Components/LandingPage";
 import Experience from "./Components/Experience";
+import AddExperience from "./Components/AddExperience";
 
 function App() {
   const data = [
@@ -49,6 +50,14 @@ function App() {
 
       <Route path="/experiences/:id">
         <Experience />
+      </Route>
+
+      <Route path = '/AddExperience'>
+        <AddExperience/>
+      </Route>
+
+      <Route path = '/EditExperience'>
+        <EditExperience/>
       </Route>
     </div>
   );
