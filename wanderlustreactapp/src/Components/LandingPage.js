@@ -19,6 +19,11 @@ function LandingPage(props) {
           </div>
         );
       })}
+
+      <Link to = { '/NewUser' }>
+        <button>Sign Up</button>
+      </Link>
+
       <Link to={"/AddExperience"}>
         <button>Add Experience</button>
       </Link>

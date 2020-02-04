@@ -5,6 +5,7 @@ import LandingPage from "./Components/LandingPage";
 import Experience from "./Components/Experience";
 import AddExperience from "./Components/AddExperience";
 import EditExperience from "./Components/EditExperience";
+import NewUser from "./Components/NewUser";
 
 function App() {
   const data = [
@@ -64,6 +65,10 @@ function App() {
 
       <Route path="/EditExperience/:id">
         <EditExperience />
+      </Route>
+      
+      <Route path = '/NewUser'>
+        <NewUser />
       </Route>
     </div>
   );
