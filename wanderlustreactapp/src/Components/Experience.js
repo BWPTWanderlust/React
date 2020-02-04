@@ -23,6 +23,10 @@ function Experience(props) {
 
   return (
     <div>
+      <p>
+        <img src={item.imgurl} alt="Experience"></img>
+      </p>
+
       <p>Location: {item.location}</p>
       <p>Trip Type: {item.type}</p>
       <p>Duration: {item.duration}</p>
