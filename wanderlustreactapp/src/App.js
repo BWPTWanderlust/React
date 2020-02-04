@@ -40,6 +40,8 @@ function App() {
     }
   ];
 
+  const [indexperience] = useState(data);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -49,9 +51,12 @@ function App() {
         <LandingPage experience={data} />
       </Route>
 
-      <Route path="/Experience/:id">
-        <Experience experience={data} />
-      </Route>
+      <Route
+        path="/Experience/:id"
+        render={props => <Experience {...props} experience={indexperience} />}
+      />
+      {/* <Experience experience={data} />
+      </Route> */}
 
       <Route path="/AddExperience">
         <AddExperience />
