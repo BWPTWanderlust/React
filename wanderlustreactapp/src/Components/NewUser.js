@@ -44,5 +44,6 @@ const NewUser = () => {
       <button type="submit">New User</button>
       <button type="submit">Login</button>
     </form>
+  )
 
 export default NewUser;
