@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import AddExperience from "./AddExperience";
+import Search from "./SearchBar";
 
 function LandingPage(props) {
   return (
     <div className="expedition-container">
+      <Search />
       {props.experience.map(el => {
         return (
           <div>
-            <Search/>
             <Link to={`/Experience/${el.id}`}>
               <p>Location: {el.location}</p>
             </Link>
@@ -18,7 +19,7 @@ function LandingPage(props) {
           </div>
         );
       })}
-      <Link to = { '/AddExperience' }>
+      <Link to={"/AddExperience"}>
         <button>Add Experience</button>
       </Link>
     </div>
