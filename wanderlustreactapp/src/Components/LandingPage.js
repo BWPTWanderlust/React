@@ -6,7 +6,7 @@ import Search from "./SearchBar";
 function LandingPage(props) {
   return (
     <div className="expedition-container">
-      <Search />
+      {/* <Search /> */}
       {props.experience.map(el => {
         return (
           <div>
