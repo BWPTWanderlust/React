@@ -8,6 +8,7 @@ function LandingPage(props) {
       {props.experience.map(el => {
         return (
           <div>
+            <Search/>
             <Link to={`/Experience/${el.id}`}>
               <p>Location: {el.location}</p>
             </Link>
