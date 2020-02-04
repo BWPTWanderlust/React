@@ -13,14 +13,13 @@ function LandingPage(props) {
             <Link to={`/Experience/${el.id}`}>
               <p>Location: {el.location}</p>
             </Link>
-            <p>Trip Type: {el.triptype}</p>
-            <p>Organizer: {el.organizer}</p>
+            <p>Trip Type: {el.type}</p>
             <p>Duration: {el.duration}</p>
           </div>
         );
       })}
 
-      <Link to = { '/NewUser' }>
+      <Link to={"/NewUser"}>
         <button>Sign Up</button>
       </Link>
 
