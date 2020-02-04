@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import EditExperience from "./EditExperience";
-import LandingPage from './LandingPage'
+import LandingPage from "./LandingPage";
 
 function Experience(props) {
-  console.log(props);
+  // console.log("Experience props", props);
+  // console.log("Props.experience console log", props.experience);
 
   const item = props.experience.find(
     thing => thing.id === Number(props.match.params.id)
@@ -14,17 +15,16 @@ function Experience(props) {
 
   // useEffect(() => {
   //   let id = props.match.params.id;
-  //   let thisExperience = props.expcard.find(expcard => {
+  //   let thisExperience = props.experience.find(expcard => {
   //     return expcard.id == id;
   //   });
   //   setCurrent(thisExperience);
-  // }, [props.expcard]);
+  // }, [props.experience]);
 
   return (
     <div>
       <p>Location: {item.location}</p>
-      <p>Trip Type: {item.triptype}</p>
-      <p>Organizer: {item.organizer}</p>
+      <p>Trip Type: {item.type}</p>
       <p>Duration: {item.duration}</p>
     </div>
     // <div>
