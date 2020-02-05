@@ -7,8 +7,8 @@ import Search from "./SearchBar";
 function LandingPage(props) {
   return (
     <div className="expedition-container">
-      {/* <Search /> */}
-      {props.experience.map(el => {
+      <Search setSearchExp = { props.setSearchExp } experience = { props.experience }/>
+      {props.searchExp.map(el => {
         return (
           <div>
             {/* <Card>
