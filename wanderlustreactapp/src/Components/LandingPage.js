@@ -11,7 +11,7 @@ function LandingPage(props) {
         return (
           <div>
             <p>
-              <img src={el.imgurl} alt="Experience"></img>
+              <img src={el.imgurl} alt="ExperienceImage"></img>
             </p>
 
             <Link to={`/Experience/${el.id}`}>
