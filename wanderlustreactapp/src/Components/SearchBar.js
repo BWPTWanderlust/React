@@ -14,7 +14,7 @@ const Search = props => {
 
     useEffect( () => {
         axios
-        .get( `someThingEndingWith${ search }` )
+        .get( `https://bewanderlust.herokuapp.com/api/${ search }` )
         .then( res => {
             setResult( res.data.results )
         })
