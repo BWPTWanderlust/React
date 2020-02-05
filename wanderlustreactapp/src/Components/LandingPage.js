@@ -10,13 +10,10 @@ function LandingPage(props) {
       {props.experience.map(el => {
         return (
           <div>
-<<<<<<< HEAD
-=======
             <p>
               <img src={el.imgurl} alt="ExperienceImage"></img>
             </p>
 
->>>>>>> cebda5a70025ef608c8bf3a4cc59e4b790a550bc
             <Link to={`/Experience/${el.id}`}>
               <p>Location: {el.location}</p>
             </Link>
