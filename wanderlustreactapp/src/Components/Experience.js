@@ -17,6 +17,9 @@ function Experience(props) {
       <p>Location: {item.location}</p>
       <p>Trip Type: {item.type}</p>
       <p>Duration: {item.duration}</p>
+      <Link to = { '/EditExperience'}>
+          <button>Edit Experience</button>
+      </Link> 
     </div>
   );
 }

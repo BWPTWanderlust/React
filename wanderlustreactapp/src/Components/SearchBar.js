@@ -7,20 +7,21 @@ const Search = props => {
 
     const [ search, setSearch ] = useState('')
     const [ result, setResult ] = useState([])
+    const { experience, setSearchExp } = props
 
     const changeHandler = e => {
         setSearch( e.target.value )
-    }
+        
+        }
+
 
     useEffect( () => {
-        axios
-        .get( `https://bewanderlust.herokuapp.com/api/${ search }` )
-        .then( res => {
-            setResult( res.data.results )
-        })
-        .catch( err => {
-            console.error( err )
-        })
+        const filterExp = experience.filter(exp => {
+            return (
+                exp.location.toLowerCase().includes( search.toLowerCase() )
+                )
+            })
+            setSearchExp( filterExp )
     }, [ search ])
 
     return (
