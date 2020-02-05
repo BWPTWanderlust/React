@@ -29,38 +29,46 @@ const NewUser = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <label htmlFor="username">Username</label>
-      <input
-        id="username"
-        type="text"
-        name="username"
-        onChange={handleChanges}
-        value={user.username}
-      />
-      <label htmlFor="name">Name</label>
-      <input
-        id="name"
-        type="text"
-        name="name"
-        onChange={handleChanges}
-        value={user.name}
-      />
-      <label htmlFor="email">Email</label>
-      <input
-        id="email"
-        type="email"
-        name="email"
-        onChange={handleChanges}
-        value={user.email}
-      />
-      <label htmlFor="password">Password</label>
-      <input
-        id="password"
-        name="password"
-        type="password"
-        onChange={handleChanges}
-        value={user.password}
-      />
+      <p>
+        <label htmlFor="username">Username</label>
+        <input
+          id="username"
+          type="text"
+          name="username"
+          onChange={handleChanges}
+          value={user.username}
+        />
+      </p>
+      <p>
+        <label htmlFor="name">Name</label>
+        <input
+          id="name"
+          type="text"
+          name="name"
+          onChange={handleChanges}
+          value={user.name}
+        />
+      </p>
+      <p>
+        <label htmlFor="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          onChange={handleChanges}
+          value={user.email}
+        />
+      </p>
+      <p>
+        <label htmlFor="password">Password</label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          onChange={handleChanges}
+          value={user.password}
+        />
+      </p>
       {/* <label htmlFor="organizer">Organizer</label>
       <input
         id="organizer"
@@ -69,9 +77,11 @@ const NewUser = () => {
         onChange={handleChanges}
         value={user.organizer}
       /> */}
-      <button type="submit" onClick={() => console.log("Submitted")}>
-        Register
-      </button>
+      <p>
+        <button type="submit" onClick={() => console.log("Submitted")}>
+          Register
+        </button>
+      </p>
       {/* <button type="submit">Login</button> */}
     </form>
   );

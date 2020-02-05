@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
-import App from '../App'
-
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import App from "../App";
 
 const Search = props => {
+
+export default Search;
 
     const [ search, setSearch ] = useState('')
     const [ result, setResult ] = useState([])
