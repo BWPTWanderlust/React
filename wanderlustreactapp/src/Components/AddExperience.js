@@ -42,47 +42,58 @@ const AddExperience = props => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input
-        placeholder="Trip Type"
-        id="type"
-        type="text"
-        onChange={handleChanges}
-        name="type"
-        ref={register({ required: true })}
-      />
-      {errors.type && "Required field"}
-      <input
-        placeholder="Location"
-        name="location"
-        onChange={handleChanges}
-        id="location"
-        ref={register({ required: true })}
-      />
-      {errors.make && "Location is Required"}
-      <input
-        placeholder="Duration"
-        name="duration"
-        onChange={handleChanges}
-        id="duration"
-        ref={register({ required: true })}
-      />
-      {errors.model && "Duration is Required"}
-      <input
-        placeholder="Description"
-        name="description"
-        onChange={handleChanges}
-        id="description"
-        ref={register({ required: true })}
-      />
-      {errors.model && "Description is Required"}
-      <input
-        placeholder="Title"
-        name="title"
-        onChange={handleChanges}
-        id="title"
-        ref={register({ required: true })}
-      />
-      {errors.model && "Title is Required"}
+      <p>
+        <input
+          placeholder="Trip Type"
+          id="type"
+          type="text"
+          onChange={handleChanges}
+          name="type"
+          ref={register({ required: true })}
+        />
+
+        {errors.type && "Required field"}
+      </p>
+      <p>
+        <input
+          placeholder="Location"
+          name="location"
+          onChange={handleChanges}
+          id="location"
+          ref={register({ required: true })}
+        />
+        {errors.make && "Location is Required"}
+      </p>
+      <p>
+        <input
+          placeholder="Duration"
+          name="duration"
+          onChange={handleChanges}
+          id="duration"
+          ref={register({ required: true })}
+        />
+        {errors.model && "Duration is Required"}
+      </p>
+      <p>
+        <input
+          placeholder="Description"
+          name="description"
+          onChange={handleChanges}
+          id="description"
+          ref={register({ required: true })}
+        />
+        {errors.model && "Description is Required"}
+      </p>
+      <p>
+        <input
+          placeholder="Title"
+          name="title"
+          onChange={handleChanges}
+          id="title"
+          ref={register({ required: true })}
+        />
+        {errors.model && "Title is Required"}
+      </p>
       <input type="submit" />
     </form>
   );
