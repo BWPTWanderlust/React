@@ -12,24 +12,43 @@ justify-content: center;
 `
 const Card = Styled.div`
 margin: 2rem 6rem;
+padding: 1rem;
+background-color: #ffc357;
+box-shadow: 2px 2px #d88144;
+border-radius: 1.5rem;
 `
 
 const SearchBox = Styled.div`
 margin: 1rem;
+color: #084f93;
+font-size: 1.5rem;
+font-weight: bold;
 `
 
 const Button = Styled.div`
 margin: 1rem;
+padding: .5rem 1rem;
+border-radius: 1.5rem;
+background-color: #ffc357;
+box-shadow: 2px 2px #d88144;
+color: #084f93;
+font-size: 1.5rem;
+font-weight: bold;
 `
 
 const Buttons = Styled.div`
 display: flex;
 justify-content: center;
+
+`
+
+const Landing = Styled.div`
+
 `
 
 function LandingPage(props) {
   return (
-    <div className="expedition-container">
+    <Landing>
       <SearchBox>
         <Search setSearchExp = { props.setSearchExp } experience = { props.experience }/>
       </SearchBox>
@@ -63,18 +82,18 @@ function LandingPage(props) {
         })}
       </Cards>
       <Buttons>
-        <Button>
+        {/* <Button> */}
           <Link to={"/NewUser"}>
-            <button>Sign Up</button>
+            <Button>Sign Up</Button>
           </Link>
-        </Button>
-        <Button>  
+        {/* </Button>
+        <Button>   */}
           <Link to={"/AddExperience"}>
-            <button>Add Experience</button>
+            <Button>Add Experience</Button>
           </Link>
-        </Button>
+        {/* </Button> */}
       </Buttons>
-    </div>
+    </Landing>
   );
 }
 
