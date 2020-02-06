@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import AddExperience from "./AddExperience";
-// import { Card, CardBody, CardTitle, CardText, CardImg } from "reactstrap";
 import Search from "./SearchBar";
 import Styled from 'styled-components'
+
 
 const Cards = Styled.div`
 display: flex;
@@ -56,18 +55,6 @@ function LandingPage(props) {
         {props.searchExp.map(el => {
           return (
             <Card>
-              {/* <Card>
-              <CardImg src={el.imgurl} alt="ExperienceImage" width="80px" />
-              <CardBody>
-                <CardTitle>
-                  <Link to={`/Experience/${el.id}`}>
-                    Location: {el.location}
-                  </Link>
-                </CardTitle>
-                <CardText>Trip Type: {el.type}</CardText>
-                <CardText>Duration: {el.duration}</CardText>
-              </CardBody>
-            </Card> */}
               <p>
                 <img src={el.imgurl} alt="ExperienceImage"></img>
               </p>
