@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
+
 import axios from "axios";
 
 const NewUser = () => {
+  const history = useHistory();
   const { register, errors, handleSubmit } = useForm();
   const [user, setUser] = useState({
     username: "",
@@ -21,12 +24,13 @@ const NewUser = () => {
     axios
       .post("https://bewanderlust.herokuapp.com/api/auth/register/user", user)
       .then(res => {
+        localStorage.setItem("id", res.data.id);
         setUser(res.data);
-        console.log("res", res);
       })
+      // .then(console.log("User info: ", user))
+      .then(history.push("/"))
       .catch(err => console.log(err));
   };
-
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <p>
@@ -37,7 +41,12 @@ const NewUser = () => {
           name="username"
           onChange={handleChanges}
           value={user.username}
+          ref={register({
+            required: "Required",
+            message: "Username required"
+          })}
         />
+        {errors.username && errors.username.message}
       </p>
       <p>
         <label htmlFor="name">Name</label>
@@ -47,7 +56,14 @@ const NewUser = () => {
           name="name"
           onChange={handleChanges}
           value={user.name}
+          ref={register({
+            required: "Required",
+            pattern: {
+              message: "Name required"
+            }
+          })}
         />
+        {errors.name && errors.name.message}
       </p>
       <p>
         <label htmlFor="email">Email</label>
@@ -57,7 +73,15 @@ const NewUser = () => {
           name="email"
           onChange={handleChanges}
           value={user.email}
+          ref={register({
+            required: "Required",
+            pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+              message: "invalid email address"
+            }
+          })}
         />
+        <p>{errors.email && errors.email.message}</p>
       </p>
       <p>
         <label htmlFor="password">Password</label>
@@ -67,7 +91,15 @@ const NewUser = () => {
           type="password"
           onChange={handleChanges}
           value={user.password}
+          ref={register({
+            required: "You must specify a password",
+            minLength: {
+              value: 8,
+              message: "Password must have at least 8 characters"
+            }
+          })}
         />
+        {errors.password && <p>{errors.password.message}</p>}
       </p>
       {/* <label htmlFor="organizer">Organizer</label>
       <input
