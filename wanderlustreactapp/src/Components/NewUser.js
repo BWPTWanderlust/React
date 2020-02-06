@@ -20,7 +20,8 @@ const NewUser = () => {
 
   const onSubmit = () => {
     axios
-      .post("https://bewanderlust.herokuapp.com/api/auth/register/user", user)
+      // .post("https://bewanderlust.herokuapp.com/api/auth/register/user", user)
+      .post("https://bewanderlust.herokuapp.com/api/auth/register/org", user)
       .then(res => {
         localStorage.setItem("id", res.data.id);
         setUser(res.data);

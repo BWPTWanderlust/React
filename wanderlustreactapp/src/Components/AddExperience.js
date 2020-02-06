@@ -12,7 +12,9 @@ const AddExperience = props => {
   const [exp, setExp] = useState({
     type: "",
     location: "",
-    duration: ""
+    duration: "",
+    description: "",
+    title: ""
   });
 
   const handleChanges = e => {
@@ -22,6 +24,7 @@ const AddExperience = props => {
   const onSubmit = () => {
     // e.preventDefault();
     // console.log("User object", user);
+    console.log("Add experience", exp);
     axios
       .post(
         `https://bewanderlust.herokuapp.com/api/exps/org/${localStorage.getItem(
@@ -29,7 +32,10 @@ const AddExperience = props => {
         )}`,
         exp
       )
-      .then(res => setExp(res.data))
+      //  .post("https://bewanderlust.herokuapp.com/api/exps/org/1", exp)
+      .then(res => {
+        setExp(res.data);
+      })
       .then(history.push("/"))
       .catch(err => console.log(err));
   };
@@ -40,6 +46,7 @@ const AddExperience = props => {
         placeholder="Trip Type"
         id="type"
         type="text"
+        onChange={handleChanges}
         name="type"
         ref={register({ required: true })}
       />
@@ -47,6 +54,7 @@ const AddExperience = props => {
       <input
         placeholder="Location"
         name="location"
+        onChange={handleChanges}
         id="location"
         ref={register({ required: true })}
       />
@@ -54,10 +62,27 @@ const AddExperience = props => {
       <input
         placeholder="Duration"
         name="duration"
+        onChange={handleChanges}
         id="duration"
         ref={register({ required: true })}
       />
       {errors.model && "Duration is Required"}
+      <input
+        placeholder="Description"
+        name="description"
+        onChange={handleChanges}
+        id="description"
+        ref={register({ required: true })}
+      />
+      {errors.model && "Description is Required"}
+      <input
+        placeholder="Title"
+        name="title"
+        onChange={handleChanges}
+        id="title"
+        ref={register({ required: true })}
+      />
+      {errors.model && "Title is Required"}
       <input type="submit" />
     </form>
   );
