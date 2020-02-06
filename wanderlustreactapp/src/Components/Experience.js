@@ -7,6 +7,8 @@ function Experience(props) {
     thing => thing.id === Number(props.match.params.id)
   );
 
+  const id = props.match.params.id
+
   return (
     <div>
       <p>
@@ -16,7 +18,7 @@ function Experience(props) {
       <p>Location: {item.location}</p>
       <p>Trip Type: {item.type}</p>
       <p>Duration: {item.duration}</p>
-      <Link to = { '/EditExperience/:id' }>
+      <Link to = { `/EditExperience/${id}`}>
           <button>Edit Experience</button>
       </Link> 
     </div>
