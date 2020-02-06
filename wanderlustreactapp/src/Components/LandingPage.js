@@ -58,7 +58,7 @@ function LandingPage(props) {
           return (
             <Card>
               <p>
-                <img src={el.imgurl} alt="ExperienceImage"></img>
+                <img src={el.imgurl} width="200px" alt="ExperienceImage"></img>
               </p>
 
               <Link to={`/Experience/${el.id}`}>
