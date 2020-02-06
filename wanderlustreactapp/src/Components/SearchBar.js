@@ -22,7 +22,7 @@ const Search = props => {
     <div>
       <form>
         <label>
-          Search Wanderlust: {""}
+          Search Wanderlust by Location: {""}
           <input
             onChange={changeHandler}
             type="text"
