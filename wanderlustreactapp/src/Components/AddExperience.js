@@ -62,7 +62,7 @@ const AddExperience = props => {
           id="location"
           ref={register({ required: true })}
         />
-        {errors.make && "Location is Required"}
+        {errors.location && "Location is Required"}
       </p>
       <p>
         <input
@@ -72,7 +72,7 @@ const AddExperience = props => {
           id="duration"
           ref={register({ required: true })}
         />
-        {errors.model && "Duration is Required"}
+        {errors.duration && "Duration is Required"}
       </p>
       <p>
         <input
@@ -82,7 +82,7 @@ const AddExperience = props => {
           id="description"
           ref={register({ required: true })}
         />
-        {errors.model && "Description is Required"}
+        {errors.description && "Description is Required"}
       </p>
       <p>
         <input
@@ -92,94 +92,21 @@ const AddExperience = props => {
           id="title"
           ref={register({ required: true })}
         />
-        {errors.model && "Title is Required"}
+        {errors.title && "Title is Required"}
+      </p>
+      <p>
+        <input
+          placeholder="Image URL"
+          name="imgurl"
+          onChange={handleChanges}
+          id="imgurl"
+          ref={register({ required: true })}
+        />
+        {errors.imgurl && "Image URL is Required"}
       </p>
       <input type="submit" />
     </form>
   );
 };
-
-// BLAIR'S CODE ENDS
-
-// const [ exp, setExp ] = useState({
-//     trip:'',
-//     location:'',
-//     duration:'',
-//     privPro:''
-// })
-
-// const changeHandler = event => {
-//     setExp({
-//         ...exp,
-//         [ event.target.name ]: event.target.value
-//     })
-// }
-
-// const submitHandler = event => {
-//     event.preventDefault()
-//     props.setEvent(otherExp => [ ...otherExp, exp ])
-//     setExp({
-//         trip:'',
-//         location:'',
-//         duration:'',
-//         privPro:''
-//     })
-// }
-
-// return (
-
-//     <div>
-//         <form onSubmit = { submitHandler }>
-//             <label>
-//                 Trip:
-//                 <input
-//                     required
-//                     name = 'trip'
-//                     value = { exp.trip }
-//                     onChange = { changeHandler }
-//                     type = 'text'
-//                 />
-//             </label>
-//             <br/>
-//             <label>
-//                 Location:
-//                 <input
-//                     required
-//                     name = 'location'
-//                     value = { exp.location }
-//                     onChange = { changeHandler }
-//                     type = 'text'
-//                 />
-//             </label>
-//             <br/>
-//             <label>
-//                 Duration:
-//                 <input
-//                     required
-//                     name = 'duration'
-//                     value = { exp.duration }
-//                     onChange = { changeHandler }
-//                     type = 'text'
-//                 />
-//             </label>
-//             <br/>
-//             <label>
-//                 <select
-//                     name = 'privPro'
-//                     value = { exp.privPro }
-//                     onChange = { changeHandler }
-//                 >
-//                     <option value = ''></option>
-//                     <option value = 'Private'>Private</option>
-//                     <option value = 'Professional'>Professional</option>
-//                 </select>
-//             </label>
-//             <button type = 'submit'>Submit</button>
-//         </form>
-//     </div>
-
-// )
-
-// }
 
 export default AddExperience;
