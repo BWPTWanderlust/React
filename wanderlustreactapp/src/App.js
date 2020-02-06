@@ -10,17 +10,17 @@ import NewUser from "./Components/NewUser";
 
 function App() {
   const [experience, setExperience] = useState([]);
-  const [ searchExp, setSearchExp ] = useState( [ ...experience ] )
+  const [searchExp, setSearchExp] = useState([...experience]);
   useEffect(() => {
     axios
       .get("https://bewanderlust.herokuapp.com/api/exps")
       .then(res => {
-        setExperience(res.data)
-        setSearchExp(res.data)
-        console.log(res.data)})
+        setExperience(res.data);
+        setSearchExp(res.data);
+        console.log(res.data);
+      })
       .catch(err => console.log(err));
   }, []);
-
 
   return (
     <div className="App">
@@ -28,7 +28,11 @@ function App() {
         <h1>Wanderlust</h1>
       </header>
       <Route exact path="/">
-        <LandingPage experience={experience} setSearchExp = { setSearchExp } searchExp = { searchExp } />
+        <LandingPage
+          experience={experience}
+          setSearchExp={setSearchExp}
+          searchExp={searchExp}
+        />
         {/* <LandingPage experience={data} /> */}
       </Route>
 
@@ -40,7 +44,7 @@ function App() {
       </Route> */}
 
       <Route path="/AddExperience">
-        <AddExperience />
+        <AddExperience experience={experience} setExperience={setExperience} />
       </Route>
 
       <Route path="/EditExperience/:id">
