@@ -19,15 +19,12 @@ const NewUser = () => {
   };
 
   const onSubmit = () => {
-    // e.preventDefault();
-    // console.log("User object", user);
     axios
       .post("https://bewanderlust.herokuapp.com/api/auth/register/user", user)
       .then(res => {
         localStorage.setItem("id", res.data.id);
         setUser(res.data);
       })
-      // .then(console.log("User info: ", user))
       .then(history.push("/"))
       .catch(err => console.log(err));
   };
@@ -101,20 +98,11 @@ const NewUser = () => {
         />
         {errors.password && <p>{errors.password.message}</p>}
       </p>
-      {/* <label htmlFor="organizer">Organizer</label>
-      <input
-        id="organizer"
-        name="organizer"
-        type="checkbox"
-        onChange={handleChanges}
-        value={user.organizer}
-      /> */}
       <p>
         <button type="submit" onClick={() => console.log("Submitted")}>
           Register
         </button>
       </p>
-      {/* <button type="submit">Login</button> */}
     </form>
   );
 };

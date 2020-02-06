@@ -33,15 +33,12 @@ function App() {
           setSearchExp={setSearchExp}
           searchExp={searchExp}
         />
-        {/* <LandingPage experience={data} /> */}
       </Route>
 
       <Route
         path="/Experience/:id"
         render={props => <Experience {...props} experience={experience} />}
       />
-      {/* <Experience experience={data} />
-      </Route> */}
 
       <Route path="/AddExperience">
         <AddExperience experience={experience} setExperience={setExperience} />

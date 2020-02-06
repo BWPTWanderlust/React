@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import EditExperience from "./EditExperience";
-import LandingPage from "./LandingPage";
+
 
 function Experience(props) {
   const item = props.experience.find(
