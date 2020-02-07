@@ -7,10 +7,17 @@ import Experience from "./Components/Experience";
 import AddExperience from "./Components/AddExperience";
 import EditExperience from "./Components/EditExperience";
 import NewUser from "./Components/NewUser";
+import logo from "./WanderlustLogo_BLUE.png"
 
 function App() {
   const [experience, setExperience] = useState([]);
   const [searchExp, setSearchExp] = useState([...experience]);
+
+  const logoStyle = {
+    width: '25rem',
+    height: 'auto',
+  }
+
   useEffect(() => {
     axios
       .get("https://bewanderlust.herokuapp.com/api/exps")
@@ -25,7 +32,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Wanderlust</h1>
+        <img src = { logo } alt = 'wanderlust logo' style = { logoStyle } />
+        {/* <h1>Wanderlust</h1> */}
       </header>
       <Route exact path="/">
         <LandingPage
