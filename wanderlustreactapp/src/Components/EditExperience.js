@@ -1,10 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { axios } from "axios";
 import { useHistory, useParams } from "react-router-dom";
 import { server } from "axios";
 
 const EditExperience = props => {
+import { useHistory } from "react-router-dom";
+import axios from "axios";
+
+const EditExperience = props => {
+  // BLAIR'S CODE STARTS
+
   const history = useHistory();
   const { register, errors, handleSubmit } = useForm();
 
