@@ -3,7 +3,7 @@ import App from "../App";
 
 const Search = props => {
   const [search, setSearch] = useState("");
-  const [result, setResult] = useState([]);
+  const [result] = useState([]);
   const { experience, setSearchExp } = props;
 
   const changeHandler = e => {

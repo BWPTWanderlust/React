@@ -53,6 +53,14 @@ function LandingPage(props) {
           experience={props.experience}
         />
       </SearchBox>
+      <Buttons>
+        <Link to={"/NewUser"}>
+          <Button>Sign Up Organizer</Button>
+        </Link>
+        <Link to={"/AddExperience"}>
+          <Button>Add Experience</Button>
+        </Link>
+      </Buttons>
       <Cards>
         {props.searchExp.map(el => {
           return (
@@ -70,18 +78,6 @@ function LandingPage(props) {
           );
         })}
       </Cards>
-      <Buttons>
-        {/* <Button> */}
-        <Link to={"/NewUser"}>
-          <Button>Sign Up Organizer</Button>
-        </Link>
-        {/* </Button>
-        <Button>   */}
-        <Link to={"/AddExperience"}>
-          <Button>Add Experience</Button>
-        </Link>
-        {/* </Button> */}
-      </Buttons>
     </Landing>
   );
 }
