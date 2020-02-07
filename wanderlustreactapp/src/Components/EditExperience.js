@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { axios } from "axios";
+import { useHistory, useParams } from "react-router-dom";
+import { server } from "axios";
+
+const EditExperience = props => {
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 
@@ -109,31 +114,6 @@ const EditExperience = props => {
 
 export default EditExperience;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // import React, { useState } from 'react'
 
 // const EditExperience = props => {
@@ -146,7 +126,7 @@ export default EditExperience;
 //     })
 
 //     const changeHandler = event => {
-//         setExp({ 
+//         setExp({
 //             ...exp,
 //             [ event.target.name ]: event.target.value
 //         })
@@ -169,13 +149,13 @@ export default EditExperience;
 //             <form onSubmit = { submitHandler }>
 //                 <label>
 //                     Trip:
-//                     <input 
-//                         required 
+//                     <input
+//                         required
 //                         name = 'trip'
 //                         value = { exp.trip }
 //                         onChange = { changeHandler }
 //                         type = 'text'
-//                     /> 
+//                     />
 //                 </label>
 //                 <br/>
 //                 <label>
