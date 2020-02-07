@@ -35,6 +35,7 @@ const AddExperience = props => {
       //  .post("https://bewanderlust.herokuapp.com/api/exps/org/1", exp)
       .then(res => {
         setExp(res.data);
+        props.update();
       })
       .then(history.push("/"))
       .catch(err => console.log(err));

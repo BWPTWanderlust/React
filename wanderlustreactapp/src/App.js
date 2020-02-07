@@ -29,6 +29,17 @@ function App() {
       .catch(err => console.log(err));
   }, []);
 
+  const updateExps = () => {
+    axios
+      .get("https://bewanderlust.herokuapp.com/api/exps")
+      .then(res => {
+        setExperience(res.data);
+        setSearchExp(res.data);
+        console.log(res.data);
+      })
+      .catch(err => console.log(err));
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -49,7 +60,11 @@ function App() {
       />
 
       <Route path="/AddExperience">
-        <AddExperience experience={experience} setExperience={setExperience} />
+        <AddExperience
+          experience={experience}
+          setExperience={setExperience}
+          update={updateExps}
+        />
       </Route>
 
       <Route path="/EditExperience/:id">
