@@ -20,6 +20,9 @@ function Experience(props) {
       <Link to={`/EditExperience/${id}`}>
         <button>Edit Experience</button>
       </Link>
+      <Link to={"/"}>
+        <button>Home</button>
+      </Link>
     </div>
   );
 }
