@@ -45,6 +45,7 @@ const Landing = Styled.div`
 `;
 
 function LandingPage(props) {
+
   return (
     <Landing>
       <SearchBox>
