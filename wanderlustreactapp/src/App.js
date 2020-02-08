@@ -49,8 +49,10 @@ function App() {
       <Route exact path="/">
         <LandingPage
           experience={experience}
-          setSearchExp={setSearchExp}
-          searchExp={searchExp}
+          setExperience={setExperience}
+          searchExp = { searchExp }
+          setSearchExp = { setSearchExp }
+          update={updateExps}
         />
       </Route>
 
@@ -63,12 +65,20 @@ function App() {
         <AddExperience
           experience={experience}
           setExperience={setExperience}
+          searchExp = { searchExp }
+          setSearchExp = { setSearchExp }
           update={updateExps}
         />
       </Route>
 
       <Route path="/EditExperience/:id">
-        <EditExperience />
+        <EditExperience 
+          experience={experience}
+          setExperience={setExperience}
+          searchExp = { searchExp }
+          setSearchExp = { setSearchExp }
+          update={updateExps}
+        />
       </Route>
 
       <Route path="/NewUser">

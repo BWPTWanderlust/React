@@ -1,18 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { axios } from "axios";
 import { useHistory, useParams } from "react-router-dom";
-import { server } from "axios";
-
-const EditExperience = props => {
-import { useHistory } from "react-router-dom";
 import axios from "axios";
 
+
 const EditExperience = props => {
-  // BLAIR'S CODE STARTS
+  
 
   const history = useHistory();
   const { register, errors, handleSubmit } = useForm();
+  const {id} = useParams()
 
   const [exp, setExp] = useState({
     type: "",
@@ -29,19 +26,27 @@ const EditExperience = props => {
   const onSubmit = () => {
     console.log("Edit experience", exp);
     axios
-      .post(
-        `https://bewanderlust.herokuapp.com/api/exps/org/${localStorage.getItem(
-          "id"
-        )}`,
+      .put(
+        `https://bewanderlust.herokuapp.com/api/exps/${id}`,
         exp
       )
       .then(res => {
         setExp(res.data);
+        console.log('res: ', res)
         props.update();
       })
       .then(history.push("/"))
       .catch(err => console.log(err));
   };
+
+  useEffect(() => {
+    axios
+    .get(`https://bewanderlust.herokuapp.com/api/exps/${id}`)
+    .then(res => {
+        setExp(res.data)
+    })
+    .catch(err => console.log(err))
+  },[]) 
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -52,7 +57,8 @@ const EditExperience = props => {
           type="text"
           onChange={handleChanges}
           name="type"
-          ref={register({ required: true })}
+          ref={register({ required: false })}
+          value = { exp.type }
         />
 
         {errors.type && "Required field"}
@@ -63,7 +69,8 @@ const EditExperience = props => {
           name="location"
           onChange={handleChanges}
           id="location"
-          ref={register({ required: true })}
+          ref={register({ required: false })}
+          value = { exp.location }
         />
         {errors.location && "Location is Required"}
       </p>
@@ -73,7 +80,8 @@ const EditExperience = props => {
           name="duration"
           onChange={handleChanges}
           id="duration"
-          ref={register({ required: true })}
+          ref={register({ required: false })}
+          value = { exp.duration }
         />
         {errors.duration && "Duration is Required"}
       </p>
@@ -83,7 +91,8 @@ const EditExperience = props => {
           name="description"
           onChange={handleChanges}
           id="description"
-          ref={register({ required: true })}
+          ref={register({ required: false })}
+          value = { exp.description }
         />
         {errors.description && "Description is Required"}
       </p>
@@ -93,7 +102,8 @@ const EditExperience = props => {
           name="title"
           onChange={handleChanges}
           id="title"
-          ref={register({ required: true })}
+          ref={register({ required: false })}
+          value = { exp.title }
         />
         {errors.title && "Title is Required"}
       </p>
@@ -103,11 +113,12 @@ const EditExperience = props => {
           name="imgurl"
           onChange={handleChanges}
           id="imgurl"
-          ref={register({ required: true })}
+          ref={register({ required: false })}
+          value = { exp.imgurl }
         />
         {errors.imgurl && "Image URL is Required"}
       </p>
-      <input type="submit" />
+      <button type="submit">Update</button>
     </form>
   );
 };
