@@ -46,3 +46,13 @@
     transform: rotate(360deg);
   }
 }
+
+input {
+  width: 300px;
+  border-radius: .5rem;
+}
+
+textarea {
+  width: 300px;
+  border-radius: .5rem;
+}
