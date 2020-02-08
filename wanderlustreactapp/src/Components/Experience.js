@@ -3,33 +3,32 @@ import { Link } from "react-router-dom";
 import Styled from "styled-components";
 
 const Cards = Styled.div`
-display: flex;
-flex-flow: row wrap;
-justify-content: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
 `;
 const Card = Styled.div`
-margin: 2rem 6rem;
-padding: 1rem;
-background-color: #ffc357;
-box-shadow: 2px 2px #d88144;
-border-radius: 1.5rem;
+    margin: 2rem 6rem;
+    padding: 1rem;
+    background-color: #ffc357;
+    box-shadow: 2px 2px #d88144;
+    border-radius: 1.5rem;
 `;
 
 const Button = Styled.div`
-margin: 1rem;
-padding: .5rem 1rem;
-border-radius: 1.5rem;
-background-color: #ffc357;
-box-shadow: 2px 2px #d88144;
-color: #084f93;
-font-size: 1.5rem;
-font-weight: bold;
+    margin: 1rem;
+    padding: .5rem 1rem;
+    border-radius: 1.5rem;
+    background-color: #ffc357;
+    box-shadow: 2px 2px #d88144;
+    color: #084f93;
+    font-size: 1.5rem;
+    font-weight: bold;
 `;
 
 const Buttons = Styled.div`
-display: flex;
-justify-content: center;
-
+    display: flex;
+    justify-content: center;
 `;
 
 function Experience(props) {
@@ -46,10 +45,13 @@ function Experience(props) {
           <p>
             <img src={item.imgurl} alt="Experience"></img>
           </p>
-
-          <p>Location: {item.location}</p>
+          <p>Title: { item.title }</p>
           <p>Trip Type: {item.type}</p>
+          <p>Location: {item.location}</p>
+          <p>Latitude: { item.lat }</p>
+          <p>Longitude: { item.long }</p>
           <p>Duration: {item.duration}</p>
+          <p>Description: { item.description }</p>
         </Card>
       </Cards>
       <Buttons>

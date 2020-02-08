@@ -2,10 +2,43 @@ import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory, useParams } from "react-router-dom";
 import axios from "axios";
+import Styled from "styled-components"
+import "../App.css"
 
+
+const Cards = Styled.div`
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-content: space-between;
+    padding: 1rem;
+`
+
+const Card = Styled.div`
+    margin: auto;
+    padding: 1rem;
+    background-color: #ffc357;
+    box-shadow: 2px 2px #d88144;
+    border-radius: 1.5rem;
+`
+
+const Button = Styled.div`
+    margin: auto;
+    padding: .5rem 1rem;
+    border-radius: 1.5rem;
+    background-color: #ffc357;
+    box-shadow: 2px 2px #d88144;
+    color: #084f93;
+    font-size: 1.5rem;
+    font-weight: bold;
+`
+
+const Space = Styled.div`
+    margin: .5rem;
+`
 
 const EditExperience = props => {
-  
+  // BLAIR'S CODE STARTS
 
   const history = useHistory();
   const { register, errors, handleSubmit } = useForm();
@@ -41,173 +74,113 @@ const EditExperience = props => {
 
   useEffect(() => {
     axios
-    .get(`https://bewanderlust.herokuapp.com/api/exps/${id}`)
-    .then(res => {
-        setExp(res.data)
-    })
-    .catch(err => console.log(err))
+        .get(`https://bewanderlust.herokuapp.com/api/exps/${ id }`)
+        .then(res => {
+            setExp(res.data)
+        })
+        .catch(err => console.log(err))
   },[]) 
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <p>
-        <input
-          placeholder="Trip Type"
-          id="type"
-          type="text"
-          onChange={handleChanges}
-          name="type"
-          ref={register({ required: false })}
-          value = { exp.type }
-        />
+    <Cards>
+      <Card>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <p>
+            <input
+              placeholder="Title"
+              name="title"
+              onChange={handleChanges}
+              id="title"
+              ref = { register({ required: false }) }
+              value = { exp.title }
+            />
+            {errors.title && "Title is Required"}
+          </p>
+          <p>
+            <input
+              placeholder="Trip Type"
+              id="type"
+              type="text"
+              onChange={handleChanges}
+              name="type"
+              ref = { register({ required: false }) }
+              value = { exp.type }
+            />
 
-        {errors.type && "Required field"}
-      </p>
-      <p>
-        <input
-          placeholder="Location"
-          name="location"
-          onChange={handleChanges}
-          id="location"
-          ref={register({ required: false })}
-          value = { exp.location }
-        />
-        {errors.location && "Location is Required"}
-      </p>
-      <p>
-        <input
-          placeholder="Duration"
-          name="duration"
-          onChange={handleChanges}
-          id="duration"
-          ref={register({ required: false })}
-          value = { exp.duration }
-        />
-        {errors.duration && "Duration is Required"}
-      </p>
-      <p>
-        <input
-          placeholder="Description"
-          name="description"
-          onChange={handleChanges}
-          id="description"
-          ref={register({ required: false })}
-          value = { exp.description }
-        />
-        {errors.description && "Description is Required"}
-      </p>
-      <p>
-        <input
-          placeholder="Title"
-          name="title"
-          onChange={handleChanges}
-          id="title"
-          ref={register({ required: false })}
-          value = { exp.title }
-        />
-        {errors.title && "Title is Required"}
-      </p>
-      <p>
-        <input
-          placeholder="Image URL"
-          name="imgurl"
-          onChange={handleChanges}
-          id="imgurl"
-          ref={register({ required: false })}
-          value = { exp.imgurl }
-        />
-        {errors.imgurl && "Image URL is Required"}
-      </p>
-      <button type="submit">Update</button>
-    </form>
+            {errors.type && "Required field"}
+          </p>
+          <p>
+            <input
+              placeholder="Location"
+              name="location"
+              onChange={handleChanges}
+              id="location"
+              ref = { register({ required: false }) }
+              value = { exp.location }
+            />
+            {errors.location && "Location is Required"}
+          </p>
+          <p>
+            <input
+              placeholder = "Latitude"
+              name = "lat"
+              onChange = { handleChanges }
+              id = "lat"
+              ref = { register({ required: false }) }
+              value = { exp.lat }
+            />
+            { errors.lat }
+          </p>
+          <p>
+            <input
+              placeholder = "Longitude"
+              name = "long"
+              onChange = { handleChanges }
+              id="location"
+              ref = { register({ required: false }) }
+              value = { exp.long }
+            />
+            { errors.long }
+          </p>
+          <p>
+            <input
+              placeholder="Duration"
+              name="duration"
+              onChange={handleChanges}
+              id="duration"
+              ref = { register({ required: false }) }
+              value = { exp.duration }
+            />
+            {errors.duration && "Duration is Required"}
+          </p>
+          <p>
+            <textarea
+              placeholder="Description"
+              name="description"
+              onChange={handleChanges}
+              id="description"
+              ref = { register({ required: false }) }
+              value = { exp.description }
+            />
+            {errors.description && "Description is Required"}
+          </p>
+          <p>
+            <input
+              placeholder="Image URL"
+              name="imgurl"
+              onChange={handleChanges}
+              id="imgurl"
+              ref = { register({ required: false }) }
+              value = { exp.imgurl }
+            />
+            {errors.imgurl && "Image URL is Required"}
+          </p>
+        </form>
+      </Card>
+      <Space></Space>
+      <Button type="submit">Update</Button>
+    </Cards>
   );
 };
 
 export default EditExperience;
-
-// import React, { useState } from 'react'
-
-// const EditExperience = props => {
-
-//     const [ exp, setExp ] = useState({
-//         trip:'',
-//         location:'',
-//         duration:'',
-//         privPro:''
-//     })
-
-//     const changeHandler = event => {
-//         setExp({
-//             ...exp,
-//             [ event.target.name ]: event.target.value
-//         })
-//     }
-
-//     const submitHandler = event => {
-//         event.preventDefault()
-//         props.setEvent(otherExp => [ ...otherExp, exp ])
-//         setExp({
-//             trip:'',
-//             location:'',
-//             duration:'',
-//             privPro:''
-//         })
-//     }
-
-//     return (
-
-//         <div>
-//             <form onSubmit = { submitHandler }>
-//                 <label>
-//                     Trip:
-//                     <input
-//                         required
-//                         name = 'trip'
-//                         value = { exp.trip }
-//                         onChange = { changeHandler }
-//                         type = 'text'
-//                     />
-//                 </label>
-//                 <br/>
-//                 <label>
-//                     Location:
-//                     <input
-//                         required
-//                         name = 'location'
-//                         value = { exp.location }
-//                         onChange = { changeHandler }
-//                         type = 'text'
-//                     />
-//                 </label>
-//                 <br/>
-//                 <label>
-//                     Duration:
-//                     <input
-//                         required
-//                         name = 'duration'
-//                         value = { exp.duration }
-//                         onChange = { changeHandler }
-//                         type = 'text'
-//                     />
-//                 </label>
-//                 <br/>
-//                 <label>
-//                     <select
-//                         name = 'privPro'
-//                         value = { exp.privPro }
-//                         onChange = { changeHandler }
-//                     >
-//                         <option value = ''></option>
-//                         <option value = 'Private'>Private</option>
-//                         <option value = 'Professional'>Professional</option>
-//                     </select>
-//                 </label>
-//                 <button type = 'submit'>Submit</button>
-//             </form>
-//         </div>
-
-//     )
-
-// }
-
-// export default EditExperience

@@ -44,7 +44,6 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src = { logo } alt = 'wanderlust logo' style = { logoStyle } />
-        {/* <h1>Wanderlust</h1> */}
       </header>
       <Route exact path="/">
         <LandingPage
