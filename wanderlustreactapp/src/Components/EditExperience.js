@@ -125,31 +125,6 @@ const EditExperience = props => {
 
 export default EditExperience;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // import React, { useState } from 'react'
 
 // const EditExperience = props => {
@@ -162,7 +137,7 @@ export default EditExperience;
 //     })
 
 //     const changeHandler = event => {
-//         setExp({ 
+//         setExp({
 //             ...exp,
 //             [ event.target.name ]: event.target.value
 //         })
@@ -185,13 +160,13 @@ export default EditExperience;
 //             <form onSubmit = { submitHandler }>
 //                 <label>
 //                     Trip:
-//                     <input 
-//                         required 
+//                     <input
+//                         required
 //                         name = 'trip'
 //                         value = { exp.trip }
 //                         onChange = { changeHandler }
 //                         type = 'text'
-//                     /> 
+//                     />
 //                 </label>
 //                 <br/>
 //                 <label>
