@@ -138,7 +138,7 @@ const EditExperience = props => {
               onChange = { handleChanges }
               id="location"
               ref = { register({ required: false }) }
-              value = { exp.loong }
+              value = { exp.long }
             />
             { errors.long }
           </p>

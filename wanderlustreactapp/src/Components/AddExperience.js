@@ -91,7 +91,7 @@ const AddExperience = props => {
           ref = { register({ required: false }) }
           value = { exp.long }
         />
-        {errors.location && "Longitude is Required"}
+        { errors.long }
       </p>
       <p>
         <input
