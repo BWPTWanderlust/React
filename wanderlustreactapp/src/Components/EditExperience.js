@@ -1,56 +1,53 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { axios } from "axios";
 import { useHistory, useParams } from "react-router-dom";
-import { server } from "axios";
 
 const EditExperience = props => {
-import { useHistory } from "react-router-dom";
-import axios from "axios";
-
-const EditExperience = props => {
-  // BLAIR'S CODE STARTS
-
   const history = useHistory();
+  const { experience } = props;
   const { register, errors, handleSubmit } = useForm();
+  const { id } = useParams();
+  const [exp, setExp] = useState({});
 
-  const [exp, setExp] = useState({
-    type: "",
-    location: "",
-    duration: "",
-    description: "",
-    title: ""
-  });
+  useEffect(() => {
+    console.log("Experience List", experience);
+    const exp = experience.find(exp => {
+      return exp._id === id;
+    });
+    setExp(exp);
+  }, [experience, id]);
 
-  const handleChanges = e => {
-    setExp({ ...exp, [e.target.name]: e.target.value });
-  };
+  // const handleChanges = e => {
+  //   setExp({ ...exp, [e.target.name]: e.target.value });
+  // };
 
-  const onSubmit = () => {
+  const onSubmit = data => {
+    const exp = data;
     console.log("Edit experience", exp);
     axios
-      .post(
-        `https://bewanderlust.herokuapp.com/api/exps/org/${localStorage.getItem(
-          "id"
-        )}`,
-        exp
-      )
+      .put(`https://bewanderlust.herokuapp.com/api/exps/${id}`, exp)
       .then(res => {
-        setExp(res.data);
-        props.update();
+        // setExp(res.data);
+        console.log(res);
+        // props.update();
       })
       .then(history.push("/"))
       .catch(err => console.log(err));
   };
 
+  // if (!exp) {
+  //   return <h1>Loading...</h1>;
+  // }
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <p>
         <input
-          placeholder="Trip Type"
           id="type"
+          defaultValue={exp.type}
           type="text"
-          onChange={handleChanges}
+          // onChange={handleChanges}
           name="type"
           ref={register({ required: true })}
         />
@@ -59,9 +56,9 @@ const EditExperience = props => {
       </p>
       <p>
         <input
-          placeholder="Location"
+          defaultValue={exp.location}
           name="location"
-          onChange={handleChanges}
+          // onChange={handleChanges}
           id="location"
           ref={register({ required: true })}
         />
@@ -69,9 +66,9 @@ const EditExperience = props => {
       </p>
       <p>
         <input
-          placeholder="Duration"
+          defaultValue={exp.duration}
           name="duration"
-          onChange={handleChanges}
+          // onChange={handleChanges}
           id="duration"
           ref={register({ required: true })}
         />
@@ -79,9 +76,9 @@ const EditExperience = props => {
       </p>
       <p>
         <input
-          placeholder="Description"
+          defaultValue={exp.description}
           name="description"
-          onChange={handleChanges}
+          // onChange={handleChanges}
           id="description"
           ref={register({ required: true })}
         />
@@ -89,9 +86,9 @@ const EditExperience = props => {
       </p>
       <p>
         <input
-          placeholder="Title"
+          defaultValue={exp.title}
           name="title"
-          onChange={handleChanges}
+          // onChange={handleChanges}
           id="title"
           ref={register({ required: true })}
         />
@@ -99,9 +96,9 @@ const EditExperience = props => {
       </p>
       <p>
         <input
-          placeholder="Image URL"
+          defaultValue={exp.imgurl}
           name="imgurl"
-          onChange={handleChanges}
+          // onChange={handleChanges}
           id="imgurl"
           ref={register({ required: true })}
         />
