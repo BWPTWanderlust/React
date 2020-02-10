@@ -22,9 +22,6 @@ const AddExperience = props => {
   };
 
   const onSubmit = () => {
-    // e.preventDefault();
-    // console.log("User object", user);
-    console.log("Add experience", exp);
     axios
       .post(
         `https://bewanderlust.herokuapp.com/api/exps/org/${localStorage.getItem(
@@ -32,7 +29,6 @@ const AddExperience = props => {
         )}`,
         exp
       )
-      //  .post("https://bewanderlust.herokuapp.com/api/exps/org/1", exp)
       .then(res => {
         setExp(res.data);
         props.update();
@@ -43,6 +39,16 @@ const AddExperience = props => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <p>
+        <input
+          placeholder="Title"
+          name="title"
+          onChange={handleChanges}
+          id="title"
+          ref={register({ required: true })}
+        />
+        {errors.title && "Title is Required"}
+      </p>
       <p>
         <input
           placeholder="Trip Type"
@@ -67,6 +73,28 @@ const AddExperience = props => {
       </p>
       <p>
         <input
+          placeholder = "Latitude"
+          name = "lat"
+          onChange = { handleChanges }
+          id = "lat"
+          ref = { register({ required: false }) }
+          value = { exp.lat }
+        />
+        { errors.lat }
+      </p>
+      <p>
+        <input
+          placeholder = "Longitude"
+          name = "long"
+          onChange = { handleChanges }
+          id="location"
+          ref = { register({ required: false }) }
+          value = { exp.long }
+        />
+        { errors.long }
+      </p>
+      <p>
+        <input
           placeholder="Duration"
           name="duration"
           onChange={handleChanges}
@@ -84,16 +112,6 @@ const AddExperience = props => {
           ref={register({ required: true })}
         />
         {errors.description && "Description is Required"}
-      </p>
-      <p>
-        <input
-          placeholder="Title"
-          name="title"
-          onChange={handleChanges}
-          id="title"
-          ref={register({ required: true })}
-        />
-        {errors.title && "Title is Required"}
       </p>
       <p>
         <input

@@ -40,17 +40,18 @@ function App() {
       .catch(err => console.log(err));
   };
 
-  return (
+  return (S
     <div className="App">
       <header className="App-header">
-        <img src={logo} alt="wanderlust logo" style={logoStyle} />
-        {/* <h1>Wanderlust</h1> */}
+        <img src = { logo } alt = 'wanderlust logo' style = { logoStyle } />
       </header>
       <Route exact path="/">
         <LandingPage
           experience={experience}
-          setSearchExp={setSearchExp}
-          searchExp={searchExp}
+          setExperience={setExperience}
+          searchExp = { searchExp }
+          setSearchExp = { setSearchExp }
+          update={updateExps}
         />
       </Route>
 
@@ -63,12 +64,20 @@ function App() {
         <AddExperience
           experience={experience}
           setExperience={setExperience}
+          searchExp = { searchExp }
+          setSearchExp = { setSearchExp }
           update={updateExps}
         />
       </Route>
 
       <Route path="/EditExperience/:id">
-        <EditExperience experience={experience} setExperience={setExperience} />
+        <EditExperience 
+          experience={experience}
+          setExperience={setExperience}
+          searchExp = { searchExp }
+          setSearchExp = { setSearchExp }
+          update={updateExps}
+        />
       </Route>
 
       <Route path="/NewUser">
