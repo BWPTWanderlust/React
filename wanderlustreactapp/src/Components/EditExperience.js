@@ -71,7 +71,7 @@ const EditExperience = props => {
       .then(history.push("/"))
       .catch(err => console.log(err));
   };
-
+  
   useEffect(() => {
     axios
         .get(`https://bewanderlust.herokuapp.com/api/exps/${ id }`)

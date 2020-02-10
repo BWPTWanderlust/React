@@ -7,16 +7,16 @@ import Experience from "./Components/Experience";
 import AddExperience from "./Components/AddExperience";
 import EditExperience from "./Components/EditExperience";
 import NewUser from "./Components/NewUser";
-import logo from "./WanderlustLogo_BLUE.png"
+import logo from "./WanderlustLogo_BLUE.png";
 
 function App() {
   const [experience, setExperience] = useState([]);
   const [searchExp, setSearchExp] = useState([...experience]);
 
   const logoStyle = {
-    width: '25rem',
-    height: 'auto',
-  }
+    width: "25rem",
+    height: "auto"
+  };
 
   useEffect(() => {
     axios
@@ -40,7 +40,7 @@ function App() {
       .catch(err => console.log(err));
   };
 
-  return (
+  return (S
     <div className="App">
       <header className="App-header">
         <img src = { logo } alt = 'wanderlust logo' style = { logoStyle } />
