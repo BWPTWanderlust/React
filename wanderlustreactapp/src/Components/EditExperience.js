@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory, useParams } from "react-router-dom";
 import axios from "axios";
-import Styled from "styled-components"
-import "../App.css"
-
+import Styled from "styled-components";
+import "../App.css";
 
 const Cards = Styled.div`
     display: flex;
@@ -12,7 +11,7 @@ const Cards = Styled.div`
     justify-content: center;
     align-content: space-between;
     padding: 1rem;
-`
+`;
 
 const Card = Styled.div`
     margin: auto;
@@ -20,7 +19,7 @@ const Card = Styled.div`
     background-color: #ffc357;
     box-shadow: 2px 2px #d88144;
     border-radius: 1.5rem;
-`
+`;
 
 const Button = Styled.div`
     margin: auto;
@@ -31,19 +30,17 @@ const Button = Styled.div`
     color: #084f93;
     font-size: 1.5rem;
     font-weight: bold;
-`
+`;
 
 const Space = Styled.div`
     margin: .5rem;
-`
+`;
 
 const EditExperience = props => {
-  // BLAIR'S CODE STARTS
-
   const history = useHistory();
   const { register, errors, handleSubmit } = useForm();
-  const {id} = useParams()
-
+  const { id } = useParams();
+  console.log("Handle Submit", handleSubmit);
   const [exp, setExp] = useState({
     type: "",
     location: "",
@@ -58,28 +55,22 @@ const EditExperience = props => {
 
   const onSubmit = () => {
     console.log("Edit experience", exp);
+    let valuesToSend = {};
+    Object.keys(exp).forEach((val, index) => {
+      if (exp[val] !== "") {
+        valuesToSend[val] = exp[val];
+      }
+    });
     axios
-      .put(
-        `https://bewanderlust.herokuapp.com/api/exps/${id}`,
-        exp
-      )
+      .put(`https://bewanderlust.herokuapp.com/api/exps/${id}`, valuesToSend)
       .then(res => {
         setExp(res.data);
-        console.log('res: ', res)
+        console.log("res: ", res);
         props.update();
       })
       .then(history.push("/"))
       .catch(err => console.log(err));
   };
-  
-  useEffect(() => {
-    axios
-        .get(`https://bewanderlust.herokuapp.com/api/exps/${ id }`)
-        .then(res => {
-            setExp(res.data)
-        })
-        .catch(err => console.log(err))
-  },[]) 
 
   return (
     <Cards>
@@ -91,8 +82,8 @@ const EditExperience = props => {
               name="title"
               onChange={handleChanges}
               id="title"
-              ref = { register({ required: false }) }
-              value = { exp.title }
+              ref={register({ required: false })}
+              value={exp.title}
             />
             {errors.title && "Title is Required"}
           </p>
@@ -103,8 +94,8 @@ const EditExperience = props => {
               type="text"
               onChange={handleChanges}
               name="type"
-              ref = { register({ required: false }) }
-              value = { exp.type }
+              ref={register({ required: false })}
+              value={exp.type}
             />
 
             {errors.type && "Required field"}
@@ -115,32 +106,32 @@ const EditExperience = props => {
               name="location"
               onChange={handleChanges}
               id="location"
-              ref = { register({ required: false }) }
-              value = { exp.location }
+              ref={register({ required: false })}
+              value={exp.location}
             />
             {errors.location && "Location is Required"}
           </p>
           <p>
             <input
-              placeholder = "Latitude"
-              name = "lat"
-              onChange = { handleChanges }
-              id = "lat"
-              ref = { register({ required: false }) }
-              value = { exp.lat }
+              placeholder="Latitude"
+              name="lat"
+              onChange={handleChanges}
+              id="lat"
+              ref={register({ required: false })}
+              value={exp.lat}
             />
-            { errors.lat }
+            {errors.lat}
           </p>
           <p>
             <input
-              placeholder = "Longitude"
-              name = "long"
-              onChange = { handleChanges }
+              placeholder="Longitude"
+              name="long"
+              onChange={handleChanges}
               id="location"
-              ref = { register({ required: false }) }
-              value = { exp.long }
+              ref={register({ required: false })}
+              value={exp.long}
             />
-            { errors.long }
+            {errors.long}
           </p>
           <p>
             <input
@@ -148,8 +139,8 @@ const EditExperience = props => {
               name="duration"
               onChange={handleChanges}
               id="duration"
-              ref = { register({ required: false }) }
-              value = { exp.duration }
+              ref={register({ required: false })}
+              value={exp.duration}
             />
             {errors.duration && "Duration is Required"}
           </p>
@@ -159,8 +150,8 @@ const EditExperience = props => {
               name="description"
               onChange={handleChanges}
               id="description"
-              ref = { register({ required: false }) }
-              value = { exp.description }
+              ref={register({ required: false })}
+              value={exp.description}
             />
             {errors.description && "Description is Required"}
           </p>
@@ -170,15 +161,15 @@ const EditExperience = props => {
               name="imgurl"
               onChange={handleChanges}
               id="imgurl"
-              ref = { register({ required: false }) }
-              value = { exp.imgurl }
+              ref={register({ required: false })}
+              value={exp.imgurl}
             />
             {errors.imgurl && "Image URL is Required"}
           </p>
         </form>
       </Card>
       <Space></Space>
-      <Button type="submit">Update</Button>
+      <Button onClick={onSubmit}>Update</Button>
     </Cards>
   );
 };
