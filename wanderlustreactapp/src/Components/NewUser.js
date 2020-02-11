@@ -66,7 +66,7 @@ const NewUser = () => {
       <Card>
         <form onSubmit={handleSubmit(onSubmit)}>
           <p>
-            <label htmlFor="username">Username</label>
+            <label htmlFor="username">Username </label>
             <input
               id="username"
               type="text"
@@ -81,7 +81,7 @@ const NewUser = () => {
             {errors.username && errors.username.message}
           </p>
           <p>
-            <label htmlFor="name">Name</label>
+            <label htmlFor="name">Name </label>
             <input
               id="name"
               type="text"
@@ -98,7 +98,7 @@ const NewUser = () => {
             {errors.name && errors.name.message}
           </p>
           <p>
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">Email </label>
             <input
               id="email"
               type="email"
@@ -116,7 +116,7 @@ const NewUser = () => {
             <p>{errors.email && errors.email.message}</p>
           </p>
           <p>
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">Password </label>
             <input
               id="password"
               name="password"
@@ -141,7 +141,7 @@ const NewUser = () => {
         </form>
         <Space></Space>
 
-        <Button onClick={onSubmit}>Register</Button>
+        <Button onClick={handleSubmit(onSubmit)}>Register</Button>
       </Card>
     </Cards>
   );

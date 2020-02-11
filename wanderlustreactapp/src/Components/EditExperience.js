@@ -169,7 +169,7 @@ const EditExperience = props => {
         </form>
       </Card>
       <Space></Space>
-      <Button onClick={onSubmit}>Update</Button>
+      <Button onClick={handleSubmit(onSubmit)}>Update</Button>
     </Cards>
   );
 };

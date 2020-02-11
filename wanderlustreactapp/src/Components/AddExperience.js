@@ -160,7 +160,7 @@ const AddExperience = props => {
           </p>
           <Space></Space>
 
-          <Button onClick={onSubmit}>Submit</Button>
+          <Button onClick={handleSubmit(onSubmit)}>Submit</Button>
           {/* <input type="submit" /> */}
         </form>
       </Card>
